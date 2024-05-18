@@ -195,8 +195,11 @@ public class HomesManager {
     public static void teleportPlayerToLocation( final String player, Location location ) {
         Player p = Bukkit.getPlayer( player );
         if ( p != null ) {
+            //p.sendMessage("[home_debug}playerが存在しているため、テレポートします。");
+            //System.out.println("[home_debug}playerが存在しているため、テレポートします。");
             p.teleport( location );
         } else {
+            //System.out.println("[home_debug}playerが存在していないため、保留リストに追加します。");
             pendingTeleports.put( player, location );
             if ( BungeeSuiteHomes.usingTeleports ) {
                 TeleportsManager.ignoreTeleport.add( p );

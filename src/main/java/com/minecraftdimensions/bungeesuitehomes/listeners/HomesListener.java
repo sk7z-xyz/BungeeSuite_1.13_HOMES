@@ -11,11 +11,19 @@ import org.bukkit.event.player.PlayerLoginEvent;
 
 public class HomesListener implements Listener {
 
-    @EventHandler( priority = EventPriority.LOWEST )
+    @EventHandler( priority = EventPriority.HIGHEST )
     public void playerConnect( PlayerJoinEvent e ) {
+        //e.getPlayer().sendMessage("[home_debug] homeコマンドによる接続かチェック");
+        //System.out.println("[home_debug] homeコマンドによる接続かチェック");
         if ( HomesManager.pendingTeleports.containsKey( e.getPlayer().getName() ) ) {
             Location l = HomesManager.pendingTeleports.get( e.getPlayer().getName() );
-            e.getPlayer().teleport( l );
+            e.getPlayer().teleport(l);
+            //e.getPlayer().sendMessage(l.toString());
+            ///e.getPlayer().sendMessage("[home_debug] 保留リストに存在しているプレイヤーののためテレポート");
+            //System.out.println("[home_debug] 保留リストに存在しているプレイヤーののためテレポート");
+        }else{
+            //e.getPlayer().sendMessage("[home_debug] 保留リストに存在しないプレイヤーです。");
+            //System.out.println("[home_debug] 保留リストに存在しないプレイヤーです。");
         }
     }
 

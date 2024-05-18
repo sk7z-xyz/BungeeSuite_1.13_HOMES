@@ -18,12 +18,19 @@ public class HomesMessageListener implements PluginMessageListener {
     public void onPluginMessageReceived( String channel, Player player, byte[] message ) {
         DataInputStream in = new DataInputStream( new ByteArrayInputStream( message ) );
         String task = null;
+        //player.sendMessage("[home_debug]onPluginMessageReceived");
 
         try {
             task = in.readUTF();
-
+            //player.sendMessage("[home_debug]TeleportToLocationTaskCheck");
+            //System.out.println("[home_debug]TeleportToLocationTaskCheck");
             if ( task.equals( "TeleportToLocation" ) ) {
+                //player.sendMessage("[home_debug]TeleportToLocation");
+                //System.out.println("[home_debug]TeleportToLocation");
                 HomesManager.teleportPlayerToLocation( in.readUTF(), new Location( Bukkit.getWorld( in.readUTF() ), in.readDouble(), in.readDouble(), in.readDouble(), in.readFloat(), in.readFloat() ) );
+            }else{
+                //player.sendMessage("[home_debug]NotTeleportToLocationTask");
+                //System.out.println("[home_debug]NotTeleportToLocationTask");
             }
         } catch ( IOException e ) {
             e.printStackTrace();

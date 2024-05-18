@@ -1,9 +1,9 @@
 name: Homes
 main : com.minecraftdimensions.bungeesuitehomes.BungeeSuiteHomes
-version: "REWORK 0.1"
 description: Part of the BungeeSuite this plugin allows users to set homes in each server.
 author: Bloodsplat
 website: http://www.spigotmc.org/resources/bungeesuite.9/
+version: ${project.version}
 prefix: BungeeSuite
 commands:
     sethome:
